@@ -1,11 +1,11 @@
-🚀 Job Portal Backend
+# 🚀 Job Portal Backend
 
-📌 Description
+## 📌 Description
 This is a Job Portal backend system built using Node.js, Express, and MongoDB. It allows employers to post jobs and users to view and apply for jobs.
 
 ---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 - Node.js
 - Express.js
 - MongoDB Atlas
@@ -13,7 +13,7 @@ This is a Job Portal backend system built using Node.js, Express, and MongoDB. I
 
 ---
 
- ⚙️ Features
+## ⚙️ Features
 - Add Job (POST /jobs)
 - Get All Jobs (GET /jobs)
 - Apply for Job (POST /apply)
@@ -21,7 +21,7 @@ This is a Job Portal backend system built using Node.js, Express, and MongoDB. I
 
 ---
 
-📂 Project Structure
+## 📂 Project Structure
 job-portal-system/
 │── models/
 │   ├── Job.js
@@ -31,7 +31,7 @@ job-portal-system/
 
 ---
 
-▶️ How to Run
+## ▶️ How to Run
 
 1. Clone the repository
 2. Install dependencies:
@@ -43,7 +43,7 @@ job-portal-system/
 
 ---
 
-🌐 API Endpoints
+## 🌐 API Endpoints
 
 ### Add Job
 POST /jobs
@@ -56,12 +56,12 @@ POST /apply
 
 ---
 
-Future Improvements
+## 📊 Future Improvements
 - User authentication (login/register)
 - Frontend (React UI)
 - Job filtering & search
 
 ---
 
-👩‍💻 Author
+## 👩‍💻 Author
 Ankitha
