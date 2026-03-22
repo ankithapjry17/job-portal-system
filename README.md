@@ -1,7 +1,7 @@
 # 🚀 Job Portal Backend
 
 ## 📌 Description
-This is a Job Portal backend system built using Node.js, Express, and MongoDB. It allows employers to post jobs and users to view and apply for jobs.
+This is a Job Portal backend system built using Node.js, Express, and MongoDB. It supports user authentication, job posting, job search, and job application features.
 
 ---
 
@@ -14,10 +14,14 @@ This is a Job Portal backend system built using Node.js, Express, and MongoDB. I
 ---
 
 ## ⚙️ Features
+- User Registration (POST /register)
+- User Login (POST /login)
 - Add Job (POST /jobs)
 - Get All Jobs (GET /jobs)
+- Search Jobs (GET /jobs/search?q=keyword)
+- Update Job (PUT /jobs/:id)
+- Delete Job (DELETE /jobs/:id)
 - Apply for Job (POST /apply)
-- MongoDB integration
 
 ---
 
@@ -25,7 +29,8 @@ This is a Job Portal backend system built using Node.js, Express, and MongoDB. I
 job-portal-system/
 │── models/
 │   ├── Job.js
-│   └── Application.js
+│   ├── Application.js
+│   └── User.js
 │── server.js
 │── package.json
 
@@ -45,21 +50,37 @@ job-portal-system/
 
 ## 🌐 API Endpoints
 
-### Add Job
-POST /jobs
+### 👤 User
+- POST /register
+- POST /login
 
-### Get Jobs
-GET /jobs
+### 💼 Jobs
+- POST /jobs
+- GET /jobs
+- GET /jobs/search?q=keyword
+- PUT /jobs/:id
+- DELETE /jobs/:id
 
-### Apply Job
-POST /apply
+### 📥 Applications
+- POST /apply
 
 ---
 
-## 📊 Future Improvements
-- User authentication (login/register)
-- Frontend (React UI)
-- Job filtering & search
+## 📊 MongoDB Queries Used
+- insertOne
+- find
+- findOne
+- regex search
+- updateOne
+- deleteOne
+
+---
+
+## 🚀 Future Improvements
+- Frontend (React)
+- JWT Authentication
+- Role-based access (Admin/User)
+- Job filtering
 
 ---
 
