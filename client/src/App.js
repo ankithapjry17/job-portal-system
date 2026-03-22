@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Register from "./Register";
+import Login from "./Login";
+import JobList from "./JobList";
 
 function App() {
+  const [page, setPage] = useState("login");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Navbar */}
+      <nav style={{ padding: "10px", background: "#333", color: "#fff" }}>
+        <h2>Job Portal 💼</h2>
+
+        <div>
+          <button onClick={() => setPage("login")}>Login</button>
+          <button onClick={() => setPage("register")}>Register</button>
+          <button onClick={() => setPage("jobs")}>Jobs</button>
+        </div>
+      </nav>
+
+      {/* Pages */}
+      <div style={{ padding: "20px" }}>
+        {page === "login" && <Login />}
+        {page === "register" && <Register />}
+        {page === "jobs" && <JobList />}
+      </div>
     </div>
   );
 }
