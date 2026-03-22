@@ -1,50 +1,97 @@
-# 🚀 Job Portal Backend
+# 🚀 Job Portal System
 
 ## 📌 Description
-This is a Job Portal backend system built using Node.js, Express, and MongoDB. It supports user authentication, job posting, job search, and job application features.
+This is a full-stack Job Portal system built using Node.js, Express, MongoDB, and React. It allows users to register, login, view jobs, and apply for jobs.
 
 ---
 
 ## 🛠️ Tech Stack
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Mongoose
+- Frontend: React.js
+- Backend: Node.js, Express.js
+- Database: MongoDB Atlas
+- ORM: Mongoose
+- API Calls: Axios
 
 ---
 
 ## ⚙️ Features
+
+### 👤 User
 - User Registration (POST /register)
 - User Login (POST /login)
+
+### 💼 Jobs
 - Add Job (POST /jobs)
 - Get All Jobs (GET /jobs)
 - Search Jobs (GET /jobs/search?q=keyword)
 - Update Job (PUT /jobs/:id)
 - Delete Job (DELETE /jobs/:id)
+
+### 📥 Applications
+- Apply for Job (POST /apply)
+
+---
+
+## 📂 Project Structure
+# 🚀 Job Portal System
+
+## 📌 Description
+This is a full-stack Job Portal system built using Node.js, Express, MongoDB, and React. It allows users to register, login, view jobs, and apply for jobs.
+
+---
+
+## 🛠️ Tech Stack
+- Frontend: React.js
+- Backend: Node.js, Express.js
+- Database: MongoDB Atlas
+- ORM: Mongoose
+- API Calls: Axios
+
+---
+
+## ⚙️ Features
+
+### 👤 User
+- User Registration (POST /register)
+- User Login (POST /login)
+
+### 💼 Jobs
+- Add Job (POST /jobs)
+- Get All Jobs (GET /jobs)
+- Search Jobs (GET /jobs/search?q=keyword)
+- Update Job (PUT /jobs/:id)
+- Delete Job (DELETE /jobs/:id)
+
+### 📥 Applications
 - Apply for Job (POST /apply)
 
 ---
 
 ## 📂 Project Structure
 job-portal-system/
-│── models/
-│   ├── Job.js
-│   ├── Application.js
-│   └── User.js
-│── server.js
+│── client/ → Frontend (React)
+│── models/ → MongoDB Schemas
+│ ├── Job.js
+│ ├── Application.js
+│ └── User.js
+│── server.js → Backend API
 │── package.json
+
 
 ---
 
 ## ▶️ How to Run
 
-1. Clone the repository
-2. Install dependencies:
-   npm install
-3. Create a .env file and add:
-   MONGO_URI=your_mongodb_connection_string
-4. Start server:
-   node server.js
+### Backend
+npm install
+node server.js
+
+
+### Frontend
+cd client
+npm install
+npm start
+
 
 ---
 
@@ -77,10 +124,11 @@ job-portal-system/
 ---
 
 ## 🚀 Future Improvements
-- Frontend (React)
-- JWT Authentication
+- JWT Authentication (secure login)
 - Role-based access (Admin/User)
-- Job filtering
+- Job filtering and pagination
+- Resume upload feature
+- Notifications system
 
 ---
 
