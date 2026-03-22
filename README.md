@@ -123,6 +123,19 @@ npm start
 
 ---
 
+## 🔄 How the System Works
+
+1. User opens the frontend (React app)
+2. User registers with name, email, and password
+3. User logs in using credentials
+4. Jobs are fetched from backend API and displayed
+5. User can:
+   - View all jobs
+   - Search jobs
+   - Apply for jobs
+6. Application data is stored in MongoDB
+7. All communication between frontend and backend happens via REST APIs
+
 ## 🚀 Future Improvements
 - JWT Authentication (secure login)
 - Role-based access (Admin/User)
