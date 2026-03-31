@@ -1,0 +1,101 @@
+/* ApplicationForm.css */
+
+.application-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.application-modal-content {
+  background-color: var(--secondary-background);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  color: var(--text-color);
+  text-align: left;
+  position: relative;
+}
+
+.application-modal-content h2 {
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.application-modal-content .form-group {
+  margin-bottom: 20px;
+}
+
+.application-modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.application-modal-content input[type="text"],
+.application-modal-content input[type="email"] {
+  width: calc(100% - 20px); /* Adjust for padding */
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.application-modal-content input[type="text"]:focus,
+.application-modal-content input[type="email"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.3);
+  outline: none;
+}
+
+.application-modal-content .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.application-modal-content .form-button,
+.application-modal-content .form-button-secondary {
+  padding: 12px 25px;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.application-modal-content .form-button {
+  background-color: var(--primary-color);
+  color: var(--button-text);
+  border: none;
+}
+
+.application-modal-content .form-button:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-2px);
+}
+
+.application-modal-content .form-button-secondary {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.application-modal-content .form-button-secondary:hover {
+  background-color: rgba(var(--text-color-rgb), 0.1);
+  transform: translateY(-2px);
+}

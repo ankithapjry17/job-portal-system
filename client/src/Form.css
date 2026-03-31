@@ -1,0 +1,90 @@
+/* Form.css - Aggressively Refined Aesthetic */
+
+.form-container {
+  background-color: var(--secondary-background);
+  padding: 45px; /* Slightly more padding */
+  border-radius: 20px; /* Even more rounded corners */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), /* Deeper, more diffused shadow */
+              0 0 0 1px rgba(var(--border-color-rgb), 0.1); /* Subtle border effect */
+  max-width: 580px; /* Slightly wider */
+  margin: 60px auto; /* More vertical spacing */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out; /* Smooth transitions for theme change */
+  /* font-family: 'Poppins', sans-serif; Removed Poppins from here */
+}
+
+/* Subtle background pattern for depth */
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(var(--text-color-rgb), 0.05) 0%, rgba(var(--text-color-rgb), 0.01) 100%);
+  opacity: 0.7;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.form-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.form-container h2 {
+  color: var(--primary-color);
+  margin-bottom: 35px; /* More space below heading */
+  font-size: 2.4rem; /* Larger heading */
+  font-weight: 700; /* Bolder heading */
+  letter-spacing: 0.5px;
+  /* font-family: 'Poppins', sans-serif; Removed Poppins from here */
+}
+
+.form-group {
+  margin-bottom: 28px; /* More space between form groups */
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 16px; /* Increased padding for inputs */
+  border: 1px solid var(--border-color);
+  border-radius: 12px; /* More rounded input fields */
+  background-color: var(--background-color); /* Darker background for inputs */
+  color: var(--text-color);
+  font-size: 1.1rem; /* Slightly larger font size */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  /* font-family: 'Poppins', sans-serif; Removed Poppins from here */
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.4); /* More prominent focus glow */
+  background-color: var(--secondary-background); /* Keep background consistent on focus */
+  outline: none;
+}
+
+.form-button {
+  width: 100%;
+  padding: 16px; /* Increased padding for buttons */
+  font-size: 1.2rem; /* Larger button text */
+  margin-top: 25px; /* More space above button */
+  border-radius: 12px; /* More rounded buttons */
+  font-weight: 700; /* Bolder button text */
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Make button text uppercase */
+  box-shadow: 0 4px 10px rgba(var(--primary-color-rgb), 0.3); /* Subtle shadow for buttons */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  /* font-family: 'Poppins', sans-serif; Removed Poppins from here */
+}
+
+.form-button:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 15px rgba(var(--primary-color-rgb), 0.4); /* Enhanced shadow on hover */
+}

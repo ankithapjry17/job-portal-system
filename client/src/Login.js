@@ -1,7 +1,8 @@
 import { useState } from "react";
 import API from "./services/api";
+import './Form.css'; // Import the new CSS file
 
-function Login() {
+function Login({ setUser, setPage }) {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -18,11 +19,15 @@ function Login() {
     const res = await API.post("/login", form);
 
     console.log("Login response:", res.data);
+    console.log("User data from login:", res.data.user); // Add this line
 
     // Store user properly
     localStorage.setItem("user", JSON.stringify(res.data.user));
+    localStorage.setItem("token", res.data.token);
+    setUser(res.data.user); // Update global user state
 
     alert("Login successful");
+    setPage("jobs"); // Navigate to jobs page
   } catch (err) {
     console.log(err);
     alert("Invalid credentials");
@@ -30,26 +35,31 @@ function Login() {
 };
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Login</h2>
 
       <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
-        <br /><br />
+        <div className="form-group">
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
-        <br /><br />
+        <div className="form-group">
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <button type="submit">Login</button>
+        <button type="submit" className="form-button">Login</button>
       </form>
     </div>
   );

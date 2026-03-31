@@ -3,9 +3,11 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 const Job = require("./models/Job");
 const Application = require("./models/Application");
 const User = require("./models/User");
+const authMiddleware = require("./authMiddleware"); // Import auth middleware
 
 console.log(process.env.MONGO_URI);
 
@@ -54,13 +56,21 @@ app.get("/jobs", async (req, res) => {
   }
 });
 
-app.post("/apply", async (req, res) => {
+app.post("/apply", authMiddleware, async (req, res) => { // Apply authMiddleware here
   try {
-    const { userId, jobId } = req.body;
+    const { jobId, name, email, degree, major } = req.body;
+    const userId = req.userId; // Get userId from authenticated request
+
+    // Update user's degree and major if provided
+    await User.findByIdAndUpdate(userId, { degree, major }, { new: true });
 
     const application = new Application({
       userId,
-      jobId
+      jobId,
+      name,
+      email,
+      degree,
+      major
     });
 
     await application.save();
@@ -92,15 +102,24 @@ app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email, password });
+    const user = await User.findOne({ email, password }); // Direct comparison
 
     if (!user) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+
     res.json({
       message: "Login successful",
-      user
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        degree: user.degree,
+        major: user.major,
+      },
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -144,6 +163,37 @@ app.delete("/jobs/:id", async (req, res) => {
 
     res.json({
       message: "Job deleted successfully"
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Update user profile (degree and major)
+app.put("/profile", authMiddleware, async (req, res) => {
+  try {
+    const { degree, major } = req.body;
+    const userId = req.userId;
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { degree, major },
+      { new: true, runValidators: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({
+      message: "Profile updated successfully",
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        degree: user.degree,
+        major: user.major,
+      },
     });
   } catch (err) {
     res.status(500).json({ error: err.message });

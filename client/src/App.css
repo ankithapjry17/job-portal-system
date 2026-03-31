@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
-}
+/* App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: var(--secondary-background); /* Use a variable from index.css */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  color: var(--primary-color); /* Use a variable from index.css */
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between buttons */
+}
+
+.navbar-buttons button {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-buttons button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.theme-toggle-button {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 40px; /* Fixed width for a square button */
+  height: 40px; /* Fixed height for a square button */
+  padding: 0; /* Remove default padding */
+  border-radius: 50%; /* Make it circular */
+  background-color: var(--secondary-background); /* Match navbar background */
+  color: var(--primary-color); /* Icon color */
+  border: 1px solid var(--border-color);
 }
 
-.App-link {
-  color: #61dafb;
+.theme-toggle-button:hover {
+  background-color: var(--border-color); /* Subtle hover effect */
+  color: var(--button-text);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.theme-toggle-button svg {
+  stroke: currentColor; /* Ensure SVG uses button's text color */
+}
+
+
+.page-content {
+  flex-grow: 1;
+  padding: 30px;
+  max-width: 1400px; /* Increased max-width */
+  margin: 20px auto;
+  background-color: var(--secondary-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
